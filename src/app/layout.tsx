@@ -2,10 +2,13 @@ import "./globals.css";
 import { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { Inter } from "next/font/google";
 import { ThemeWrapper } from "@/components/atoms/theme-wrapper";
-
-const inter = Inter({ subsets: ["latin"] });
+import { ResponsiveIndicator } from "@/components/atoms/responsive-indicator";
+import {
+  NavbarMobile,
+  NavbarProvider,
+} from "@/components/organisms/navbar-mobile";
+import { Navbar } from "@/components/organisms/navbar/navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,9 +29,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <NavbarProvider>
+            <Navbar />
+            <NavbarMobile />
+            {children}
+          </NavbarProvider>
         </ThemeWrapper>
       </body>
+      <ResponsiveIndicator />
     </html>
   );
 }
