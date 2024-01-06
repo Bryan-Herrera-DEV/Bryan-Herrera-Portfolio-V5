@@ -31,12 +31,12 @@ export default function RootLayout({
         >
           <NavbarProvider>
             <Navbar />
-            <NavbarMobile />
-            {children}
+            {/* <NavbarMobile /> */}
           </NavbarProvider>
+          {children}
         </ThemeWrapper>
+        <ResponsiveIndicator />
       </body>
-      <ResponsiveIndicator />
     </html>
   );
 }
