@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Inter } from "next/font/google";
+import { ThemeWrapper } from "@/components/atoms/theme-wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,14 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={`${GeistSans.variable} ${GeistMono.variable} font-mono`}>
-        {children}
+        <ThemeWrapper
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeWrapper>
       </body>
     </html>
   );
