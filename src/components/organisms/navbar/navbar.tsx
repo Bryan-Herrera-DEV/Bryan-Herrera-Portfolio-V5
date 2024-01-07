@@ -1,5 +1,6 @@
 "use client";
 import { NavLink } from "@/components/atoms/nav-link";
+import { ThemeToggle } from "@/components/molecules/theme-toggle";
 import Link from "next/link";
 
 export const Navbar = () => {
@@ -19,6 +20,7 @@ export const Navbar = () => {
             </NavLink>
           ))}
         </ul>
+        <ThemeToggle />
       </div>
     </nav>
   );
