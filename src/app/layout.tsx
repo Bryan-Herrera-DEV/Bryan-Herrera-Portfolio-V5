@@ -29,11 +29,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NavbarProvider>
-            <Navbar />
-            {/* <NavbarMobile /> */}
-          </NavbarProvider>
-          {children}
+          <main>
+            <NavbarProvider>
+              <Navbar />
+              {/* <NavbarMobile /> */}
+            </NavbarProvider>
+            {children}
+          </main>
         </ThemeWrapper>
         <ResponsiveIndicator />
       </body>
