@@ -31,20 +31,20 @@ export const navMenu = [
     name: "_hello",
     path: "/",
   },
-  {
-    name: "_about-me",
-    path: "/about",
-  },
-  {
-    name: "_projects",
-    path: "/projects",
-  },
-  {
-    name: "_guest-book",
-    path: "/guest-book",
-  },
-  {
-    name: "_articles",
-    path: "/articles",
-  },
+  // {
+  //   name: "_about-me",
+  //   path: "/about",
+  // },
+  // {
+  //   name: "_projects",
+  //   path: "/projects",
+  // },
+  // {
+  //   name: "_guest-book",
+  //   path: "/guest-book",
+  // },
+  // {
+  //   name: "_articles",
+  //   path: "/articles",
+  // },
 ];

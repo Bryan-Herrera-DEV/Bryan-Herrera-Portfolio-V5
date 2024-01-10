@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -48,7 +48,7 @@
     --ring: 240 4.9% 83.9%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
@@ -71,15 +71,31 @@
     @apply bg-gray-100;
   }
 
-  html.light [data-theme='dark'] {
+  html.light [data-theme="dark"] {
     display: none;
   }
 
-  html.dark [data-theme='light'] {
+  html.dark [data-theme="light"] {
     display: none;
   }
 
   [data-radix-popper-content-wrapper] {
     border: 0;
+  }
+
+  .LinkedIn {
+    @apply text-blue-500;
+  }
+  .Youtube {
+    @apply text-red-500;
+  }
+  .Github {
+    @apply text-gray-500;
+  }
+  .DevTo {
+    @apply text-amber-500;
+  }
+  .Twitch {
+    @apply text-purple-500;
   }
 }
