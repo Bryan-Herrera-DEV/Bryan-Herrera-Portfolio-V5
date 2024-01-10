@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./../globals.css";
 import { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -47,11 +47,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { locale },
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <meta name="reply-to" content="bryherrera55@gmail.com" />
         <meta name="copyright" content="Bryan Herrera" />
@@ -92,7 +94,7 @@ export default function RootLayout({
         >
           <main>
             <NavbarProvider>
-              <Navbar />
+              <Navbar lang={locale} />
               {/* <NavbarMobile /> */}
             </NavbarProvider>
             {children}
