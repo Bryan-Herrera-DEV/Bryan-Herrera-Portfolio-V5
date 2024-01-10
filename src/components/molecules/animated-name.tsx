@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 export const AnimatedName = () => {
-  const [text, setText] = useState("BRYAN ELIAS HERRERA");
+  const [text, setText] = useState("BRYAN HERRERA");
   const [intervalId] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
