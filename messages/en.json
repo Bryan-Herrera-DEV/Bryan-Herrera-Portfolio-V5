@@ -1,4 +1,8 @@
 {
+    "LanguageButton": {
+        "es": "Spanish",
+        "en": "English"
+    },
     "Home": {
         "pretitle": "Hi all. I am",
         "profession": "Full-Stack Developer",

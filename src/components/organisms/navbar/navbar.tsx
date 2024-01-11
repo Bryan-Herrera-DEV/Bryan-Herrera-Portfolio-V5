@@ -1,5 +1,6 @@
 "use client";
 import { NavLink } from "@/components/atoms/nav-link";
+import { LanguageToggle } from "@/components/molecules/language-toggle";
 import { ThemeToggle } from "@/components/molecules/theme-toggle";
 import Link from "next/link";
 
@@ -20,7 +21,10 @@ export const Navbar = () => {
             </NavLink>
           ))}
         </ul>
-        <ThemeToggle />
+        <div className="flex items-center justify-between">
+          <LanguageToggle />
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );

@@ -1,4 +1,8 @@
 {
+    "LanguageButton": {
+        "es": "Español",
+        "en": "Inglés"
+    },
     "Home": {
         "pretitle": "Hola a todos, soy",
         "profession": "Desarrollador Full-Stack",
