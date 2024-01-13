@@ -3,6 +3,7 @@ import { NavLink } from "@/components/atoms/nav-link";
 import { LanguageToggle } from "@/components/molecules/language-toggle";
 import { ThemeToggle } from "@/components/molecules/theme-toggle";
 import Link from "next/link";
+import { NavbarMobileBtn } from "../navbar-mobile/navbar-mobile-btn";
 
 export const Navbar = () => {
   return (
@@ -24,6 +25,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between">
           <LanguageToggle />
           <ThemeToggle />
+          <NavbarMobileBtn />
         </div>
       </div>
     </nav>

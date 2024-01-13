@@ -1,7 +1,15 @@
-
 "use client";
-import { ComponentPropsWithRef, createContext, useContext } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import {
+  ComponentPropsWithRef,
+  createContext,
+  useContext,
+  ComponentPropsWithoutRef,
+} from "react";
+import {
+  motion,
+  useReducedMotion,
+  AnimatePresence as PrimitiveAnimatePresence,
+} from "framer-motion";
 
 const FadeInStaggerContext = createContext(false);
 
@@ -18,18 +26,27 @@ export const FadeIn = (
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: shouldReduceMotion ? 0 : props.fromTopToBottom ? -24 : 24 },
-        visible: { opacity: 1, y: 0 }
+        hidden: {
+          opacity: 0,
+          y: shouldReduceMotion ? 0 : props.fromTopToBottom ? -24 : 24,
+        },
+        visible: { opacity: 1, y: 0 },
       }}
       transition={{ duration: 0.5 }}
       {...(isInStaggerGroup
         ? {}
         : {
-            initial: 'hidden',
-            whileInView: 'visible',
-            viewport
+            initial: "hidden",
+            whileInView: "visible",
+            viewport,
           })}
       {...props}
     />
-  )
+  );
+};
+
+export const AnimatePresence = (
+  props: ComponentPropsWithoutRef<typeof PrimitiveAnimatePresence>
+) => {
+  return <PrimitiveAnimatePresence {...props} />;
 };

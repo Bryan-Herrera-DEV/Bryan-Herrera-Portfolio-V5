@@ -1,5 +1,5 @@
 "use client";
-import { FC, ReactNode, createContext, useState } from "react";
+import { FC, ReactNode, createContext, useState, useContext } from "react";
 
 interface NavbarProviderProps {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface NavbarMobileContextProps {
   toggleNavbar: () => void;
 }
 
-const NabvarContext = createContext<NavbarMobileContextProps | undefined>(
+const NavbarContext = createContext<NavbarMobileContextProps | undefined>(
   undefined
 );
 
@@ -20,8 +20,16 @@ export const NavbarProvider: FC<NavbarProviderProps> = ({ children }) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <NabvarContext.Provider value={{ isOpen, toggleNavbar: toggle }}>
+    <NavbarContext.Provider value={{ isOpen, toggleNavbar: toggle }}>
       {children}
-    </NabvarContext.Provider>
+    </NavbarContext.Provider>
   );
 };
+
+export const useNavbarMobile = (): NavbarMobileContextProps => {
+  const context = useContext(NavbarContext)
+  if (!context) {
+    throw new Error('useNavbarMobile must be used within a NavbarMobileProvider')
+  }
+  return context
+}
