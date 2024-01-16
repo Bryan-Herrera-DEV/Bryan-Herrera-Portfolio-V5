@@ -7,33 +7,27 @@ import {
 } from "@/components/atoms/dropdown-menu";
 import { LanguagesIcon, Moon } from "lucide-react";
 import { Button } from "@/components/atoms/button";
+import { LanguagePrefix, useRouteHelper } from "@/hooks/useRouteHelper";
 
 export const LanguageToggle = () => {
-  const changeLanguage = (language: string) => {
-    const newUrl = window.location.pathname.replace(
-      /^\/[a-z]{2}(\/|$)/,
-      `/${language}$1`
-    );
-    window.location.href = newUrl;
-  };
+  const { changeRoute, getActiveLanguage } = useRouteHelper();
 
   const LANGUAGE_FLAGS: Record<string, string> = {
-    es: "🇸🇪🇸",
-    en: "🇺🇸"
+    [LanguagePrefix.es]: "🇸🇪🇸",
+    [LanguagePrefix.en]: "🇺🇸",
   };
 
   const LANGUAGES: Record<string, string[]> = {
-    es: ["Español", "Spanish"],
-    en: ["Inglés", "English"]
-  }
-
-  const actualLanguage: string = window.location.pathname.slice(1, 3);
+    [LanguagePrefix.es]: ["Español", "Spanish"],
+    [LanguagePrefix.en]: ["Inglés", "English"],
+  };
 
   const getActualFlag = () => {
-    return LANGUAGE_FLAGS[actualLanguage];
-  }
+    return LANGUAGE_FLAGS[getActiveLanguage()];
+  };
 
-  const t = (key: string) => LANGUAGES[key][actualLanguage === "es" ? 0 : 1];
+  const t = (key: string) =>
+    LANGUAGES[key][getActiveLanguage() === LanguagePrefix.es ? 0 : 1];
 
   return (
     <DropdownMenu>
@@ -54,15 +48,15 @@ export const LanguageToggle = () => {
       <DropdownMenuContent align="end">
         <DropdownMenuItem
           data-umami-event="theme-toggle-light"
-          onClick={() => changeLanguage("es")}
+          onClick={() => changeRoute(LanguagePrefix.es)}
         >
-          🇸🇪🇸 {t("es")}
+          🇸🇪🇸 {t(LanguagePrefix.es)}
         </DropdownMenuItem>
         <DropdownMenuItem
           data-umami-event="theme-toggle-dark"
-          onClick={() => changeLanguage("en")}
-          >
-          🇺🇸 {t("en")}
+          onClick={() => changeRoute(LanguagePrefix.en)}
+        >
+          🇺🇸 {t(LanguagePrefix.en)}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
