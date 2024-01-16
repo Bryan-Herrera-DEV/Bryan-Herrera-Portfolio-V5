@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/atoms/accordion";
+import { NAV_ROUTES } from "./constants";
 
 export const NavbarMobile = () => {
   const { isOpen, toggleNavbar } = useNavbarMobile();
@@ -19,7 +20,7 @@ export const NavbarMobile = () => {
           fromTopToBottom
           className="absolute top-[57px] left-0 bg-background h-[calc(100%-57px-27px)] w-full z-50 p-5 divide-y overflow-y-auto"
         >
-          {navMenu.map((menu, i) => (
+          {NAV_ROUTES.map((menu, i) => (
             <Fragment key={i}>
               {menu.child ? (
                 <Accordion type="single" collapsible>
@@ -60,10 +61,3 @@ export const NavbarMobile = () => {
     </AnimatePresence>
   );
 };
-
-export const navMenu = [
-  {
-    name: "_hello",
-    path: "/",
-  }
-];

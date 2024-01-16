@@ -5,6 +5,7 @@ import { ThemeToggle } from "@/components/molecules/theme-toggle";
 import Link from "next/link";
 import { NavbarMobileBtn } from "../navbar-mobile/navbar-mobile-btn";
 import { useRouteHelper } from "@/hooks/useRouteHelper";
+import { NAV_ROUTES } from "../navbar-mobile/constants";
 
 export const Navbar = () => {
   const { getActiveLanguage } = useRouteHelper();
@@ -18,7 +19,7 @@ export const Navbar = () => {
       </Link>
       <div className="md:col-span-9 lg:col-span-10 flex items-center justify-between">
         <ul className="md:flex items-center divide-x w-max border-r hidden shrink-0">
-          {navMenu.map((menu, i) => (
+          {NAV_ROUTES.map((menu, i) => (
             <NavLink key={i} href={`/${getActiveLanguage()}${menu.path}`}>
               {menu.name}
             </NavLink>
@@ -33,26 +34,3 @@ export const Navbar = () => {
     </nav>
   );
 };
-
-export const navMenu = [
-  {
-    name: "_hello",
-    path: "/",
-  },
-  {
-    name: "_about-me",
-    path: "/about",
-  },
-  // {
-  //   name: "_projects",
-  //   path: "/projects",
-  // },
-  // {
-  //   name: "_guest-book",
-  //   path: "/guest-book",
-  // },
-  // {
-  //   name: "_articles",
-  //   path: "/articles",
-  // },
-];

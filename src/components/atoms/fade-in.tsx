@@ -45,6 +45,25 @@ export const FadeIn = (
   );
 };
 
+export const FadeInStagger = ({
+  faster = false,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof motion.div> & {
+  faster?: boolean;
+}) => {
+  return (
+    <FadeInStaggerContext.Provider value={true}>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        transition={{ staggerChildren: faster ? 0.12 : 0.2 }}
+        {...props}
+      />
+    </FadeInStaggerContext.Provider>
+  );
+};
+
 export const AnimatePresence = (
   props: ComponentPropsWithoutRef<typeof PrimitiveAnimatePresence>
 ) => {
