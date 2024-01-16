@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/atoms/dropdown-menu";
-import { LanguagesIcon, Moon } from "lucide-react";
+import { LanguagesIcon } from "lucide-react";
 import { Button } from "@/components/atoms/button";
 import { LanguagePrefix, useRouteHelper } from "@/hooks/useRouteHelper";
 

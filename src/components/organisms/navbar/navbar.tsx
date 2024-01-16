@@ -8,11 +8,10 @@ import { useRouteHelper } from "@/hooks/useRouteHelper";
 import { NAV_ROUTES } from "../navbar-mobile/constants";
 
 export const Navbar = ({ locale }: { locale: string }) => {
-  const { getActiveLanguage } = useRouteHelper();
   return (
     <nav className="md:grid grid-cols-12 border-b flex items-center justify-between relative z-10 bg-background overflow-x-auto">
       <Link
-        href={`/${getActiveLanguage()}`}
+        href={`/${locale}`}
         className="md:border-r md:px-5 px-2.5 py-4 text-foreground md:col-span-3 lg:col-span-2 shrink-0 transition-colors"
       >
         Bryan Herrera

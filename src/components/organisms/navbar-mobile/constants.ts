@@ -14,11 +14,11 @@ export const NAV_ROUTES: NavRoute[] = [
   },
   {
     name: "_about-me",
-    path: "/about",
+    path: "/about/work-experience",
     child: [
       {
         name: "childsito",
-        path: "/about/child",
+        path: "/about/work-experience",
       }
     ]
   },
