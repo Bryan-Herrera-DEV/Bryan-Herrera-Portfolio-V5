@@ -1,3 +1,4 @@
+'use client'
 import { Suspense } from "react";
 
 import {
@@ -8,12 +9,15 @@ import {
 } from "@/components/atoms/accordion";
 import { AsideLink } from "@/components/atoms/aside-link";
 import { FadeInStagger, FadeIn } from "@/components/atoms/fade-in";
+import { NAV_ROUTES } from "@/components/organisms/navbar-mobile/constants";
+import { useRouteHelper } from "@/hooks/useRouteHelper";
 
 export default function AboutLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { getActiveLanguage } = useRouteHelper();
   return (
     <section className="grid grid-cols-12 overflow-hidden h-full">
       <aside className="md:col-span-3 lg:col-span-2 border-r border-lines md:block hidden overflow-y-auto">
@@ -27,16 +31,18 @@ export default function AboutLayout({
             </AccordionTrigger>
             <AccordionContent className="mt-5 space-y-1">
               <FadeInStagger faster>
-                {["a"].map(() => (
+                {NAV_ROUTES.find(
+                  ({ name }) => name === "_about-me"
+                )?.child?.map(({ name, path }) => (
                   <FadeIn key={"title"}>
                     <Suspense fallback={<>Loading...</>}>
                       <AsideLink
-                        href={"title"}
-                        key={"title"}
-                        startWith="/about"
-                        title={"title"}
+                        href={`/${getActiveLanguage()}${path}`}
+                        key={`${name}`}
+                        startWith=""
+                        title={name}
                       >
-                        {"title"}
+                        {name}
                       </AsideLink>
                     </Suspense>
                   </FadeIn>

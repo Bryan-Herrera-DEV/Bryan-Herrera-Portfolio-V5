@@ -1,11 +1,10 @@
-interface child {
-    name: string;
-    path: string;
+interface RouteCommon {
+  name: string;
+  path: string;
 }
-interface NavRoute {
-    name: string;
-    path: string;
-    child?: child[];
+interface child extends RouteCommon {}
+interface NavRoute extends RouteCommon {
+  child?: child[];
 }
 
 export const NAV_ROUTES: NavRoute[] = [
@@ -16,5 +15,11 @@ export const NAV_ROUTES: NavRoute[] = [
   {
     name: "_about-me",
     path: "/about",
+    child: [
+      {
+        name: "childsito",
+        path: "/about/child",
+      }
+    ]
   },
 ];

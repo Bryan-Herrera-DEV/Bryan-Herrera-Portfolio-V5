@@ -26,7 +26,7 @@ export default function RootLayout({
         >
           <main>
             <NavbarProvider>
-              <Navbar />
+              <Navbar locale={locale} />
               <NavbarMobile />
             </NavbarProvider>
             {children}

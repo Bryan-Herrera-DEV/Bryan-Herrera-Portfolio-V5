@@ -7,7 +7,7 @@ import { NavbarMobileBtn } from "../navbar-mobile/navbar-mobile-btn";
 import { useRouteHelper } from "@/hooks/useRouteHelper";
 import { NAV_ROUTES } from "../navbar-mobile/constants";
 
-export const Navbar = () => {
+export const Navbar = ({ locale }: { locale: string }) => {
   const { getActiveLanguage } = useRouteHelper();
   return (
     <nav className="md:grid grid-cols-12 border-b flex items-center justify-between relative z-10 bg-background overflow-x-auto">
@@ -20,7 +20,7 @@ export const Navbar = () => {
       <div className="md:col-span-9 lg:col-span-10 flex items-center justify-between">
         <ul className="md:flex items-center divide-x w-max border-r hidden shrink-0">
           {NAV_ROUTES.map((menu, i) => (
-            <NavLink key={i} href={`/${getActiveLanguage()}${menu.path}`}>
+            <NavLink key={i} href={`/${locale}${menu.path}`}>
               {menu.name}
             </NavLink>
           ))}
